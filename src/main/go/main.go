@@ -142,38 +142,88 @@ func main() {
 	fmt.Printf("a 的值为  %d\n", a);//a 的值为  4
 	fmt.Printf("a 的地址为  %d\n", ptr);//a 的地址为  825741361352
 	fmt.Printf("*ptr 为 %d\n", *ptr);//*ptr 为 4
+
+/********************************************************************条件语句*/
+	var var1, var2 = 100, 200
+	if var1 == 100 {
+		if var2 == 200 {
+			/* if 条件语句为 true 执行 */
+			fmt.Printf("var1 的值为 100 ， var2 的值为 200\n" )//var1 的值为 100 ， var2 的值为 200
+		}
+	}
+/* switch语句
+1. 不需要break
+2. 变量必须是相同的类型
+3. 多个条件使用逗号分割
+*/
+	var grade string = "C"
+	switch {
+		case grade == "A" :
+			fmt.Printf("优秀!\n" )
+		case grade == "B", grade == "C" :
+			fmt.Printf("良好\n" )
+		case grade == "D" :
+			fmt.Printf("及格\n" )
+		case grade == "F":
+			fmt.Printf("不及格\n" )
+		default:
+			fmt.Printf("差\n" )
+	}//良好
+
+	var marks int = 70
+	switch marks {
+		case 90: grade = "A"
+		case 80: grade = "B"
+		case 50,60,70 : grade = "C"
+		default: grade = "D"
+	}
+	fmt.Printf("你的等级是 %s\n", grade )//你的等级是 C
+
+	type TestStruct1 struct {
+		Key string
+	}
+	var x interface{}			//x 的类型 :<nil>
+	x = TestStruct1 {Key: "3"} 	//x 是 TestStruct1 struct 型
+	x = true 					//x 是 bool 或 string 型
+	x = 10						//x 是 int 型
+	switch i := x.(type) {
+		case nil:
+			fmt.Printf(" x 的类型 :%T",i)
+		case int:
+			fmt.Printf("x 是 int 型")
+		case TestStruct1:
+			fmt.Printf("x 是 TestStruct1 struct 型")
+		case func(int) float64:
+			fmt.Printf("x 是 func(int) 型")
+		case bool, string:
+			fmt.Printf("x 是 bool 或 string 型" )
+		default:
+			fmt.Printf("未知型")
+	}
+	fmt.Println()
+/*
+select随机执行一个可运行的case。如果没有case可运行，它将阻塞，直到有case可运行。一个默认的子句应该总是可运行的
+1. 如果任意某个通信可以进行，它就执行；其他被忽略
+2. 如果有多个case都可以运行，Select会随机公平地选出一个执行。其他不会执行
+3. 没有匹配时
+	如果有default子句，则执行该语句
+	如果没有default字句，select将阻塞，直到某个通信可以运行
+*/
+	chanCap := 5
+	ch := make(chan int, chanCap) //创建channel，容量为5
+	for i := 0; i < chanCap; i++ { //通过for循环，向channel里填满数据
+		select { //通过select随机的向channel里追加数据
+			case ch <- 1:
+			case ch <- 2:
+			case ch <- 3:
+		}
+	}
+	for i := 0; i < chanCap; i++ {
+		fmt.Printf("%v ", <-ch)
+	}//2 2 1 1 3
+
+/********************************************************************/
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
