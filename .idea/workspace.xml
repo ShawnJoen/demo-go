@@ -18,8 +18,8 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/go/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="214" column="28" selection-start-line="214" selection-start-column="28" selection-end-line="214" selection-end-column="28" />
+            <state relative-caret-position="202">
+              <caret line="273" column="72" selection-start-line="273" selection-start-column="72" selection-end-line="273" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -67,9 +67,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2822" />
-    <option name="width" value="1037" />
-    <option name="height" value="996" />
+    <option name="x" value="610" />
+    <option name="y" value="3" />
+    <option name="width" value="1226" />
+    <option name="height" value="1106" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -77,7 +78,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,8 +108,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,7 +223,9 @@
       <workItem from="1528208304611" duration="3338000" />
       <workItem from="1528284212207" duration="3547000" />
       <workItem from="1528378777805" duration="1757000" />
-      <workItem from="1528457345198" duration="4505000" />
+      <workItem from="1528457345198" duration="4723000" />
+      <workItem from="1528518146373" duration="596000" />
+      <workItem from="1528519668850" duration="2083000" />
     </task>
     <task id="LOCAL-00001" summary="变量 常量">
       <created>1528287716694</created>
@@ -238,14 +241,21 @@
       <option name="project" value="LOCAL" />
       <updated>1528380635824</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="条件语句">
+      <created>1528462007026</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528462007027</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13147000" />
+    <option name="totallyTimeSpent" value="16044000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2822" y="0" width="1037" height="996" extended-state="0" />
+    <frame x="407" y="2" width="817" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -257,11 +267,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3372093" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33665007" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18116684" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18805489" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -285,7 +295,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18116684" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18805489" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -317,9 +327,24 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="变量 常量" />
     <MESSAGE value="运算符" />
-    <option name="LAST_COMMIT_MESSAGE" value="运算符" />
+    <MESSAGE value="条件语句" />
+    <option name="LAST_COMMIT_MESSAGE" value="条件语句" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/go/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4840">
+          <caret line="220" column="27" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/go/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4840">
+          <caret line="220" column="27" selection-start-line="220" selection-start-column="20" selection-end-line="220" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/go/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2112">
@@ -343,8 +368,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/go/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="214" column="28" selection-start-line="214" selection-start-column="28" selection-end-line="214" selection-end-column="28" />
+        <state relative-caret-position="202">
+          <caret line="273" column="72" selection-start-line="273" selection-start-column="72" selection-end-line="273" selection-end-column="72" />
         </state>
       </provider>
     </entry>

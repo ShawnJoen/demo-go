@@ -221,9 +221,57 @@ select随机执行一个可运行的case。如果没有case可运行，它将阻
 	for i := 0; i < chanCap; i++ {
 		fmt.Printf("%v ", <-ch)
 	}//2 2 1 1 3
-
-/********************************************************************/
-
+	fmt.Println()
+/*******************************************************************循环语句*/
+/*循环控制语句
+break 语句, continue 语句, goto 语句(将控制转移到被标记的语句)
+*/
+	/* 定义局部变量 */
+	var va0 int = 1
+	LOOP: for va0 < 5 {
+		if va0 == 3 {
+			/* 跳过迭代 */
+			va0 = va0 + 1
+			goto LOOP
+		}
+		fmt.Printf("goto va0 的值为 : %d\n", va0)
+		va0++
+	}
+	//goto va0 的值为 : 1
+	//goto va0 的值为 : 2
+	//goto va0 的值为 : 4
+	var va1 int = 6
+	var va2 int
+	for va2 := 0; va2 < 3; va2++ {
+		fmt.Printf("第一个for va2 的值为: %d\n", va2)
+	}
+	//第一个for va2 的值为: 1
+	//第一个for va2 的值为: 2
+	for va2 < va1 {
+		va2++
+		fmt.Printf("第二个for va2 的值为: %d\n", va2)
+	}
+	//第二个for va2 的值为: 1
+	//第二个for va2 的值为: 2
+	//第二个for va2 的值为: 3
+	//第二个for va2 的值为: 4
+	//第二个for va2 的值为: 5
+	//第二个for va2 的值为: 6
+	numbers := [6]int{2, 6, 5}
+	for i,x:= range numbers {
+		fmt.Printf("第 %d 位 x 的值 = %d\n", i,x)
+	}
+	//第 0 位 x 的值 = 2
+	//第 1 位 x 的值 = 6
+	//第 2 位 x 的值 = 5
+	//第 3 位 x 的值 = 0
+	//第 4 位 x 的值 = 0
+	//第 5 位 x 的值 = 0
+	//for true  {
+	//	fmt.Printf("这是无限循环。\n");
+	//}
+	//这是无限循环。
+	/********************************************************************/
 
 }
 
