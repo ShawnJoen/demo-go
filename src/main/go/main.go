@@ -271,7 +271,48 @@ break 语句, continue 语句, goto 语句(将控制转移到被标记的语句)
 	//	fmt.Printf("这是无限循环。\n");
 	//}
 	//这是无限循环。
-	/********************************************************************/
+/*******************************************************************函数*/
+/*函数参数有两种: 值传递值(实际参数复制一份传递), 引用传递(地址传递) */
+	/*func max(num1, num2 int) int {
+		var result int
+		if (num1 > num2) {
+		result = num1
+	} else {
+		result = num2
+	}
+		return result
+	}
+	fmt.Printf( "最大值是 : %d\n", max(100, 200))*/
+	//最大值是 : 200
 
+	/*返回多个值
+	func swap(x, y string) (string, string) {
+		return y, x
+	}
+	vf1, vf2 := swap("Mahesh", "Kumar")
+	fmt.Println(vf1, vf2)//Kumar Mahesh
+	*/
+	/*
+	引用传递值
+	func swap(x *int, y *int) {
+		var temp int
+		temp = *x    //保存 x 地址上的值
+		*x = *y      //将 y 值赋给 x
+		*y = temp    //将 temp 值赋给 y
+	}
+	var vfa1 int = 100
+	var vfa2 int = 200
+	fmt.Printf("引用传递值前，vfa1 的值 : %d\n", vfa1 )
+	fmt.Printf("引用传递值前，vfa2 的值 : %d\n", vfa2 )
+	//引用传递值前，vfa1 的值 : 100
+	//引用传递值前，vfa2 的值 : 200
+	swap(&vfa1, &vfa2)
+	fmt.Printf("引用传递值后，vfa1 的值 : %d\n", vfa1 )
+	fmt.Printf("引用传递值后，vfa2 的值 : %d\n", vfa2 )
+	//引用传递值后，vfa1 的值 : 200
+	//引用传递值后，vfa2 的值 : 100
+	*/
+
+	
 }
 
