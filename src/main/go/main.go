@@ -372,6 +372,81 @@ pointer		nil
 	//a[3][1] = 6
 	//a[4][0] = 4
 	//a[4][1] = 8
+/*******************************************************************指针*/
+/*
+变量是一种使用方便的占位符，用于引用计算机内存地址,
+取地址符是 &，放到一个变量前使用就会返回相应变量的内存地址
+var var_name *var-type: var-type 为指针类型，var_name 为指针变量名，* 号用于指定变量是作为一个指针
+指针类型前面加上 * 号（前缀）来获取指针所指向的内容
+*/
+	var v_pt1 *int        /* 指向整型*/
+	var v_pt2 *float32    /* 指向浮点型 */
+	fmt.Println("类型指针", v_pt1, v_pt2)//类型指针 <nil> <nil>
+	fmt.Println("类型指针", &v_pt1, v_pt2)//类型指针 0xc042074020 <nil>
+	fmt.Println()
+
+	var v_1 int = 20	/* 声明实际变量 */
+	var v_pt3 *int    	/* 声明指针变量 */
+	v_pt3 = &v_1  		/* 指针变量的存储地址 */
+	fmt.Printf("v_1 变量的地址是: %x\n", &v_1  )		//v_1 变量的地址是: c042054260
+	/* 指针变量的存储地址 */
+	fmt.Printf("v_pt3 变量储存的指针地址: %x\n", v_pt3 )//v_pt3 变量储存的指针地址: c042054260
+	/* 使用指针访问值 */
+	fmt.Printf("*v_pt3 变量的值: %d\n", *v_pt3 )		//*v_pt3 变量的值: 20
+
+/*
+指针数组
+*/
+	v_arr1 := []int{10, 100, 200}
+	var ptr1 [3]*int
+	var size = 3
+	for  i := 0; i < size; i++ {
+		ptr1[i] = &v_arr1[i] /* 整数地址赋值给指针数组 */
+	}
+	for  i := 0; i < size; i++ {
+		fmt.Printf("arr1[%d] = %d\n", i, *ptr1[i])
+	}
+	//arr1[0] = 10
+	//arr1[1] = 100
+	//arr1[2] = 200
+
+/*
+指向指针的指针
+声明格式:　var ptr **int
+*/
+	var v_2 int = 3000
+	var ptr2 *int
+	var pptr2 **int
+	/* 指针 ptr2 地址 */
+	ptr2 = &v_2
+	/* 指向指针 ptr2 地址 */
+	pptr2 = &ptr2
+	/* 获取 pptr2 的值 */
+	fmt.Printf("变量 v_2 = %d\n", v_2 )							//变量 v_2 = 3000
+	fmt.Printf("指针变量 *ptr2 = %d\n", *ptr2 )					//指针变量 *ptr2 = 3000
+	fmt.Printf("指向指针的指针变量 **pptr2 = %d\n", **pptr2)	//指向指针的指针变量 **pptr2 = 3000
+
+/*
+指针作为函数参数
+*/
+	/*func swap(x *int, y *int) {
+		var temp int
+		temp = *x    //保存 x 地址的值
+		*x = *y      //将 y 赋值给 x
+		*y = temp    //将 temp 赋值给 y
+	}
+	var v_3 int = 100
+	var v_4 int = 200
+	//调用函数用于交换值
+	//&v_3 指向 v_3 变量的地址
+	//&v_4 指向 v_4 变量的地址
+	swap(&v_3, &v_4)
+	fmt.Printf("交换后 v_3 的值 : %d\n", v_3 )//交换后 v_3 的值 : 200
+	fmt.Printf("交换后 v_4 的值 : %d\n", v_4 )//交换后 v_4 的值 : 100
+*/
+/********************************************************************/
+
+
+
 
 }
-
