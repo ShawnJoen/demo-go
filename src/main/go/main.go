@@ -345,6 +345,9 @@ pointer		nil
 
 	fmt.Println()
 /*******************************************************************数组*/
+/*
+数组的长度不可改变
+*/
 	//一维数组的定义
 	var arr1 [10] float32
 	//初始化数组
@@ -372,6 +375,56 @@ pointer		nil
 	//a[3][1] = 6
 	//a[4][0] = 4
 	//a[4][1] = 8
+/*******************************************************************切片(Slice)*/
+/*
+功能强悍的内置类型切片("动态数组")
+切片在未初始化之前默认为 nil，长度为 0
+1. var slc1 [] int//未指定大小的数组来定义切片
+   slc2 :=[] int {1, 2, 3}//切片初始化
+2. var slice1 []type = make([]type, len)//len 是数组的长度并且也是切片的初始长度
+   slice2 :=make([]int, len, cap)//cap指定容量
+函数
+len() 方法获取长度
+cap() 可以测量切片最长可以达到多少
+copy() 如果想增加切片的容量，我们必须创建一个新的更大的切片并把原分片的内容都拷贝过来
+append() 向切片追加新元素
+
+*/
+	var slice1 = make([]int,3,5)
+	fmt.Printf("切片(Slice) len=%d cap=%d slice=%v\n",len(slice1),cap(slice1), slice1)//切片(Slice) len=3 cap=5 slice=[0 0 0]
+	slice2 := []int{0,1,2,3,4,5,6,7,8}
+	fmt.Printf("切片(Slice) len=%d cap=%d slice=%v\n",len(slice2),cap(slice2), slice2)
+		//切片(Slice) len=9 cap=9 slice=[0 1 2 3 4 5 6 7 8]
+	fmt.Println("切片(Slice) slice2 ==", slice2)
+		//切片(Slice) slice2 == [0 1 2 3 4 5 6 7 8]
+	/* 打印子切片从索引1(包含) 到索引4(不包含)*/
+	fmt.Println("切片(Slice) slice2[1:4] ==", slice2[1:4])
+		//切片(Slice) slice2[1:4] == [1 2 3]
+	/* 默认下限为 0*/
+	fmt.Println("切片(Slice) slice2[:3] ==", slice2[:3])
+		//切片(Slice) slice2[:3] == [0 1 2]
+	/* 默认上限为 len(s)*/
+	fmt.Println("切片(Slice) slice2[4:] ==", slice2[4:])
+		//切片(Slice) slice2[4:] == [4 5 6 7 8]
+
+	var slice3 []int
+	slice3 = append(slice3, 64)
+	fmt.Printf("切片(Slice)3 len=%d cap=%d slice=%v\n",len(slice3),cap(slice3), slice3)
+		//切片(Slice)3 len=1 cap=1 slice=[64]
+	slice3 = append(slice3, 55,22,77)
+	fmt.Printf("切片(Slice)3 len=%d cap=%d slice=%v\n",len(slice3),cap(slice3), slice3)
+		//切片(Slice)3 len=4 cap=4 slice=[64 55 22 77]
+
+	//创建切片 slice4 是之前切片的两倍容量
+	slice4 := make([]int, len(slice3), (cap(slice3))*2)
+	fmt.Printf("切片(Slice)4 len=%d cap=%d slice=%v\n",len(slice4),cap(slice4), slice4)
+		//切片(Slice)4 len=4 cap=8 slice=[0 0 0 0]
+
+	//拷贝 slice3 的内容到 slice4
+	copy(slice4, slice3)
+	fmt.Printf("切片(Slice)4 len=%d cap=%d slice=%v\n",len(slice4),cap(slice4), slice4)
+	//切片(Slice)4 len=4 cap=8 slice=[64 55 22 77]
+
 /*******************************************************************指针*/
 /*
 变量是一种使用方便的占位符，用于引用计算机内存地址,
@@ -444,7 +497,43 @@ var var_name *var-type: var-type 为指针类型，var_name 为指针变量名�
 	fmt.Printf("交换后 v_3 的值 : %d\n", v_3 )//交换后 v_3 的值 : 200
 	fmt.Printf("交换后 v_4 的值 : %d\n", v_4 )//交换后 v_4 的值 : 100
 */
-/********************************************************************/
+/*******************************************************************结构体*/
+	/*type Books struct {
+		title string
+		author string
+		subject string
+		book_id int
+	}
+	func printBook(book *Books) {//指针参数
+		fmt.Printf( "Book ptr title : %s\n", book.title);
+		fmt.Printf( "Book ptr author : %s\n", book.author);
+		fmt.Printf( "Book ptr subject : %s\n", book.subject);
+		fmt.Printf( "Book ptr book_id : %d\n", book.book_id);
+	}
+	var Book1 Books        //声明 Book1 为 Books 类型
+	Book1.title = "标题"
+	Book1.author = "www.shawn.com"
+	Book1.subject = "主题"
+	Book1.book_id = 108
+	fmt.Printf( "Book 1 title : %s\n", Book1.title)//Book 1 title : 标题
+	fmt.Printf( "Book 1 author : %s\n", Book1.author)//Book 1 author : www.shawn.com
+	fmt.Printf( "Book 1 subject : %s\n", Book1.subject)//Book 1 subject : 主题
+	fmt.Printf( "Book 1 book_id : %d\n", Book1.book_id)//Book 1 book_id : 108
+	//传送结构体地址
+	printBook(&Book1)*/
+	//Book ptr title : 标题
+	//Book ptr author : www.shawn.com
+	//Book ptr subject : 主题
+	//Book ptr book_id : 108
+
+
+
+
+
+
+
+
+
 
 
 
