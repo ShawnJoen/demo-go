@@ -555,7 +555,48 @@ var var_name *var-type: var-type 为指针类型，var_name 为指针变量名�
 	//0 103
 	//1 111
 
+/*******************************************************************Map(集合)*/
+/*
+无序
+*/
+	//定义 Map
+	var map1 map[string] string//默认 map 是 nil
+	map1 = make(map[string] string)//使用 make 函数
+
+	map1["china"] = "中国"
+	map1["korea"] = "한국"
+	for country := range map1 {//使用键输出地图值
+		fmt.Println(country, "国家:", map1 [country])
+	}
+	//korea 国家: 한국
+	//china 国家: 中国
+
+	captial, ok := map1 [ "usa" ]//查看元素在集合中是否存在
+	if (ok) {
+		fmt.Println("美国的首都是", captial)
+	} else {
+		fmt.Println("美国的首都不存在")
+	}//美国的首都不存在
+
+	//delete() 函数
+	map2 := map[string]string{"France": "Paris", "Italy": "Rome", "Japan": "Tokyo", "India": "New delhi"}
+	for country := range map2 {
+		fmt.Println(country, "首都是", map2 [ country ])
+	}
+	//France 首都是 Paris
+	//Italy 首都是 Rome
+	//Japan 首都是 Tokyo
+	//India 首都是 New delhi
+	delete(map2, "France")
+	for country := range map2 {
+		fmt.Println(country, "首都是", map2 [ country ])
+	}
+	//Japan 首都是 Tokyo
+	//India 首都是 New delhi
+	//Italy 首都是 Rome
 /********************************************************************/
+
+
 
 
 
