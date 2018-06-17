@@ -345,6 +345,17 @@ pointer		nil
 	*/
 
 	fmt.Println()
+
+	//recursion 阶乘递归函数
+	/*var i int = 10
+	fmt.Printf("%d 的阶乘是 %d\n", i, recursionFunc(uint64(i)))//10 的阶乘是 3628800
+	func recursionFunc(n uint64)(result uint64) {
+	if (n > 0) {
+		result = n * recursionFunc(n-1)
+		return result
+	}
+	return 1
+	}*/
 /*******************************************************************数组*/
 /*
 数组的长度不可改变
@@ -527,6 +538,41 @@ var var_name *var-type: var-type 为指针类型，var_name 为指针变量名�
 	//Book ptr subject : 主题
 	//Book ptr book_id : 108
 
+/*******************************************************************接口*/
+	/*
+	type Man interface {
+		name() string;
+		age() int;
+	}
+
+	type Woman struct {
+	}
+	func (woman Woman) name() string {
+		return "mimi"
+	}
+	func (woman Woman) age() int {
+		return 20;
+	}
+
+	type Men struct {
+	}
+	func ( men Men) name() string {
+		return "yaya";
+	}
+	func ( men Men) age() int {
+		return 22;
+	}
+	var man Man
+	man = new(Woman)
+	fmt.Println( man.name())
+	fmt.Println( man.age())
+	man = new(Men)
+	fmt.Println( man.name())
+	fmt.Println( man.age())*/
+	//mimi
+	//20
+	//yaya
+	//22
 /*******************************************************************范围(Range)*/
 	nums := []int{2, 3, 4}
 	sum := 0
@@ -594,11 +640,18 @@ var var_name *var-type: var-type 为指针类型，var_name 为指针变量名�
 	//Japan 首都是 Tokyo
 	//India 首都是 New delhi
 	//Italy 首都是 Rome
+/*******************************************************************类型转换*/
+	var v_int int = 17
+	var v_int2 int = 5
+	var v_float321 float32
+	v_float321 = float32(v_int)/float32(v_int2)
+	fmt.Printf("v_float321 的值为: %f\n", v_float321)//v_float321 的值为: 3.400000
+
 /********************************************************************/
 
 
-
-
-
-
 }
+
+
+
+
