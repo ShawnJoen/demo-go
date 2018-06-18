@@ -640,18 +640,69 @@ var var_name *var-type: var-type 为指针类型，var_name 为指针变量名�
 	//Japan 首都是 Tokyo
 	//India 首都是 New delhi
 	//Italy 首都是 Rome
+
 /*******************************************************************类型转换*/
 	var v_int int = 17
 	var v_int2 int = 5
 	var v_float321 float32
 	v_float321 = float32(v_int)/float32(v_int2)
 	fmt.Printf("v_float321 的值为: %f\n", v_float321)//v_float321 的值为: 3.400000
+	fmt.Println()
+	
+/*******************************************************************错误处理*/
+	/*func Sqrt(f float64) (float64, error) {
+	if f < 0 {
+	return 0, errors.New("math: square root of negative number")
+	}
+	return 1, nil
+	}
+	result, err2 := Sqrt(-1)
+	if err2 != nil {
+		fmt.Println("result", result)//result 0
+		fmt.Println("error message", err2)//error message math: square root of negative number
+	} else {
+		fmt.Println("result", result)//result 1
+		fmt.Println("error message", err2)//error message <nil>
+	}*/
 
-/********************************************************************/
-
+	// 正常情况
+	if result, errorMsg := Divide(100, 10); errorMsg == "" {
+		fmt.Println("100/10 = ", result)//100/10 =  10
+	}
+	// 当被除数为零的时候会返回错误信息
+	if _, errorMsg := Divide(100, 0); errorMsg != "" {
+		fmt.Println("errorMsg is: ", errorMsg)/*
+errorMsg is:
+    Cannot proceed, the divider is zero.
+    dividee: 100
+    divider: 0
+		*/
+	}
 
 }
-
-
-
-
+// 定义一个 DivideError 结构
+type DivideError struct {
+	dividee int
+	divider int
+}
+// 实现 `error` 接口
+func (de *DivideError) Error() string {
+	strFormat := `
+    Cannot proceed, the divider is zero.
+    dividee: %d
+    divider: 0`
+	return fmt.Sprintf(strFormat, de.dividee)
+}
+// 定义 `int` 类型除法运算的函数
+func Divide(varDividee int, varDivider int) (result int, errorMsg string) {
+	if varDivider == 0 {
+		dData := DivideError{
+			dividee: varDividee,
+			divider: varDivider,
+		}
+		errorMsg = dData.Error()
+		return
+	} else {
+		return varDividee / varDivider, ""
+	}
+}
